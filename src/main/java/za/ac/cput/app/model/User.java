@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.sql.Date;
 import java.time.LocalDate;
 
 /**
@@ -29,41 +30,33 @@ public class User {
 
     @NotEmpty(message = "No empty value allowed")
     @NotNull(message = "No empty value allowed")
-    @NotBlank(message = "No white space allowed")
     @Size(min = 3, max = 10, message = "Username should have 3 to 10 chars")
     @Column(nullable = false)
     private String username;
 
     @NotNull(message = "No empty value allowed")
     @NotEmpty(message = "No empty value allowed")
-    @NotBlank(message = "No white space allowed")
     @Size(min = 5, max = 10, message = "Password should have 5 to 10 chars")
     @Column(nullable = false)
     private String password;
 
     @NotNull(message = "No empty value allowed")
     @NotEmpty(message = "No empty value allowed")
-    @NotBlank(message = "No white space allowed")
     @Email(message = "Please enter valid email")
     @Column(nullable = false, unique = true)
     private String email;
 
     @NotNull(message = "No empty value allowed")
     @Column(nullable = false)
-    private LocalDate birthday;
+    private Date birthday;
 
 
     @NotNull(message = "No empty value allowed")
     @Column(nullable = false)
     private String profession;
 
-    @NotNull(message = "No empty value allowed")
-    @NotEmpty(message = "No empty value allowed")
-    @Column(nullable = false)
-    private String gender;
 
-    @NotNull(message = "No empty value allowed")
-    @Column(nullable = true)
+    private String gender;
     private boolean married;
 
     @NotNull(message = "No empty value allowed")
@@ -75,7 +68,7 @@ public class User {
     private String description;
 
     public User(String username, String password, String email,
-                LocalDate birthday, String profession, String gender,
+                Date birthday, String profession, String gender,
                 boolean married, Long income, String description) {
         this.username = username;
         this.password = password;

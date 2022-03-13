@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.app.model.User;
 import za.ac.cput.app.repository.UserRepository;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class DBInitializer implements CommandLineRunner {
                                 "John",
                                 "john123",
                                 "john@doe.com",
-                                LocalDate.of(2001, Month.AUGUST, 2),
+                                Date.valueOf("2022-02-03"),
                                 "Director",
                                 "Male",
                                 true,
@@ -45,7 +46,7 @@ public class DBInitializer implements CommandLineRunner {
                                 "Sarah",
                                 "sarah123",
                                 "sarah@doe.com",
-                                LocalDate.of(2005, Month.JANUARY, 20),
+                                Date.valueOf(LocalDate.of(2005, Month.JANUARY, 20)),
                                 "Accounting",
                                 "Female",
                                 true,
@@ -56,7 +57,7 @@ public class DBInitializer implements CommandLineRunner {
                                 "Rose",
                                 "rose123",
                                 "rose@doe.com",
-                                LocalDate.of(1997, Month.FEBRUARY, 10),
+                                Date.valueOf(LocalDate.of(1997, Month.FEBRUARY, 10)),
                                 "Secretary",
                                 "Female",
                                 false,

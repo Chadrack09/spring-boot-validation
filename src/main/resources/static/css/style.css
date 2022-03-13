@@ -15,7 +15,7 @@ body {
 .form-control {
     border-radius: unset;
 }
-.title {
+h1, h2, h3, h4, h5, h6 {
     font-weight: lighter;
 }
 .input-group-text {
@@ -26,4 +26,22 @@ body {
 }
 .form-check-input, checkbox {
     border-radius: unset;
+}
+.radio-check {
+    display: flex;
+    margin-bottom: 0.7rem;
+}
+.invalid-feedback {
+    font-size: .7rem;
+    font-weight: lighter;
+    text-align: left;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }

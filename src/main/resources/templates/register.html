@@ -12,41 +12,85 @@
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div class="container wrapper">
-        <div class="row row-width">
-            <h1 class="title">Registration</h1>
-            <form method="POST" th:action="@{/registration}" th:object="${user}">
-                <div class="input-group mb-3">
+<div class="container wrapper">
+    <div class="row row-width">
+        <h1 class="text-success" style="margin-bottom: 1rem">Registration</h1>
+        <form method="POST" th:action="@{/create}" th:object="${user}">
+            <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-username">
                         <i class="fa-solid fa-user text-success"></i>
                     </span>
-                    <input th:field="${user.username}" type="text" class="form-control"
-                           name="username" placeholder="Username" aria-describedby="basic-username">
-                </div>
-                <div class="input-group mb-3">
+                <input th:field="${user.username}" type="text" maxlength="20" class="form-control" th:errorClass="is-invalid"
+                       name="username" placeholder="Username" aria-describedby="basic-username">
+                <div th:if="${#fields.hasErrors('username')}"
+                     th:errors="${user.username}" class="invalid-feedback"></div>
+            </div>
+            <div class="input-group mb-3">
                     <span class="input-group-text text-success" id="basic-password">
                         <i class="fa-solid fa-key"></i>
                     </span>
-                    <input th:field="${user.password}" type="text" class="form-control"
-                           name="password" placeholder="Password" aria-describedby="basic-password">
-                </div>
-                <div class="input-group mb-3">
+                <input th:field="${user.password}" type="password" maxlength="15" class="form-control" th:errorClass="is-invalid"
+                       name="password" placeholder="Password" aria-describedby="basic-password">
+                <div th:if="${#fields.hasErrors('password')}" th:errors="${user.password}" class="invalid-feedback"></div>
+            </div>
+            <div class="input-group mb-3">
                     <span class="input-group-text text-success" id="basic-email">
                         <i class="fa-solid fa-at"></i>
                     </span>
-                    <input th:field="${user.email}" type="text" class="form-control"
-                           name="email" placeholder="Email" aria-describedby="basic-email">
+                <input th:field="${user.email}" type="text" class="form-control" th:errorClass="is-invalid"
+                       name="email" placeholder="Email" aria-describedby="basic-email">
+                <div th:if="${#fields.hasErrors('email')}" th:errors="${user.email}" class="invalid-feedback"></div>
+            </div>
+            <div class="input-group mb-3">
+                    <span class="input-group-text text-success" id="basic-date">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </span>
+                <input th:field="${user.birthday}" type="date" class="form-control" th:errorClass="is-invalid"
+                       name="birthday" aria-describedby="basic-date">
+                <div th:if="${#fields.hasErrors('birthday')}" th:errors="${user.birthday}" class="invalid-feedback"></div>
+            </div>
+            <div class="input-group mb-3">
+                    <span class="input-group-text text-success" id="basic-menu">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </span>
+                <select th:field="${user.profession}" class="form-select form-control" th:errorClass="is-invalid"
+                        aria-describedby="basic-menu">
+                    <option selected value="Developer">Developer</option>
+                    <option value="Java Developer">Java Developer</option>
+                    <option value="C# Developer">C# Developer</option>
+                    <option value="Python Developer">Python Developer</option>
+                    <option value="Scala Developer">Scala Developer</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                    <span class="input-group-text text-success" id="basic-salary">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                    </span>
+                <input th:field="${user.income}" type="number" pattern="/^-?\d+\.?\d*$/" th:errorClass="is-invalid"
+                       onKeyPress="if(this.value.length==10) return false;" class="form-control"
+                       name="income" placeholder="Salary" aria-describedby="basic-salary">
+                <div th:if="${#fields.hasErrors('income')}" th:errors="${user.income}" class="invalid-feedback"></div>
+            </div>
+            <div class="radio-check">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" th:radiogroup="${user.gender}" value="Male"
+                           name="gender" id="flex_radio1" checked>
+                    <label class="form-check-label" for="flex_radio1">Male</label>
                 </div>
-
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-check" style="margin-left: 1.5rem">
+                    <input class="form-check-input" type="radio" th:radiogroup="${user.gender}" value="Female"
+                           name="gender" id="flex_radio2">
+                    <label class="form-check-label" for="flex_radio2">Female</label>
                 </div>
-                <button type="submit" class="form-control btn btn-block btn-success">
-                    Create an account
-                </button>
-            </form>
-        </div>
+            </div>
+            <div class="form-check" style="margin-bottom: 1rem">
+                <input class="form-check-input" type="checkbox" th:field="${user.married}" id="check-married">
+                <label class="form-check-label" for="check-married">Married ?</label>
+            </div>
+            <button type="submit" class="form-control btn btn-block btn-success">Create an account</button>
+            <h6 style="margin-top: .5rem">Already have an account ? <a href="#">Sign in</a></h6>
+        </form>
     </div>
+</div>
 </body>
 </html>
