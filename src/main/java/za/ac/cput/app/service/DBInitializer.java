@@ -1,0 +1,74 @@
+package za.ac.cput.app.service;
+
+import lombok.AllArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Service;
+import za.ac.cput.app.model.User;
+import za.ac.cput.app.repository.UserRepository;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+/**
+ * @author Chadrack B. Boudzoumou
+ * @email 219383847@mycput.ac.za
+ * @student 219383847
+ * @uni Cape Peninsula University Of Technology
+ * @since 3/13/2022 | 11:51 AM
+ *
+ * <p>Project app</p>
+ */
+@Service
+@AllArgsConstructor
+public class DBInitializer implements CommandLineRunner {
+
+    private UserRepository repository;
+
+    @Override
+    public void run(String... args) {
+        try {
+            repository.saveAll(Stream.of(
+                        new User(
+                                "John",
+                                "john123",
+                                "john@doe.com",
+                                LocalDate.of(2001, Month.AUGUST, 2),
+                                "Director",
+                                "Male",
+                                true,
+                                52000L,
+                                "Good communicator"
+                        ),
+                        new User(
+                                "Sarah",
+                                "sarah123",
+                                "sarah@doe.com",
+                                LocalDate.of(2005, Month.JANUARY, 20),
+                                "Accounting",
+                                "Female",
+                                true,
+                                25000L,
+                                "Good communicator"
+                        ),
+                        new User(
+                                "Rose",
+                                "rose123",
+                                "rose@doe.com",
+                                LocalDate.of(1997, Month.FEBRUARY, 10),
+                                "Secretary",
+                                "Female",
+                                false,
+                                10500L,
+                                "Fast Learner"
+                        )
+                )
+                .collect(Collectors.toList())
+            );
+        }
+        catch(Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}

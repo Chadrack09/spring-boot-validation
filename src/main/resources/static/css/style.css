@@ -1,0 +1,29 @@
+html {
+    height: 100vh;
+}
+body {
+    height: 100%;
+}
+.wrapper {
+    display: flex;
+    height: inherit;
+}
+.row-width {
+    max-width: 600px;
+    margin: auto;
+}
+.form-control {
+    border-radius: unset;
+}
+.title {
+    font-weight: lighter;
+}
+.input-group-text {
+    border-radius: unset;
+}
+.btn {
+    border-radius: unset;
+}
+.form-check-input, checkbox {
+    border-radius: unset;
+}
