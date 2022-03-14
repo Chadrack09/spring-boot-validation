@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  * @author Chadrack B. Boudzoumou
@@ -30,13 +29,13 @@ public class User {
 
     @NotEmpty(message = "No empty value allowed")
     @NotNull(message = "No empty value allowed")
-    @Size(min = 3, max = 10, message = "Username should have 3 to 10 chars")
+    @Size(min = 3, max = 10, message = "Username should contains 3 to 10 characters")
     @Column(nullable = false)
     private String username;
 
     @NotNull(message = "No empty value allowed")
     @NotEmpty(message = "No empty value allowed")
-    @Size(min = 5, max = 10, message = "Password should have 5 to 10 chars")
+    @Size(min = 8, message = "Password should contains at least 8 chars")
     @Column(nullable = false)
     private String password;
 
@@ -60,16 +59,17 @@ public class User {
     private boolean married;
 
     @NotNull(message = "No empty value allowed")
-    @Min(value = 1000L, message = "Minimum income set to 1000")
-    @Max(value = 90000L, message = "Maximun income set to 90000")
+    @Min(value = 1000L, message = "Minimum income is set to 1000")
+    @Max(value = 90000L, message = "Maximum income set to 90000")
     @Column(nullable = false)
     private Long income;
 
     private String description;
+    private String role;
 
     public User(String username, String password, String email,
                 Date birthday, String profession, String gender,
-                boolean married, Long income, String description) {
+                boolean married, Long income, String description, String role) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -79,5 +79,6 @@ public class User {
         this.married = married;
         this.income = income;
         this.description = description;
+        this.role = role;
     }
 }

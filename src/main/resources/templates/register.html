@@ -13,9 +13,9 @@
 </head>
 <body>
 <div class="container wrapper">
-    <div class="row row-width">
-        <h1 class="text-success" style="margin-bottom: 1rem">Registration</h1>
-        <form method="POST" th:action="@{/create}" th:object="${user}">
+    <div class="container row row-width">
+        <h1 class="text-success" style="margin-bottom: 1rem">Sign up</h1>
+        <form method="POST" th:action="@{/save}" th:object="${user}">
             <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-username">
                         <i class="fa-solid fa-user text-success"></i>
@@ -29,7 +29,7 @@
                     <span class="input-group-text text-success" id="basic-password">
                         <i class="fa-solid fa-key"></i>
                     </span>
-                <input th:field="${user.password}" type="password" maxlength="15" class="form-control" th:errorClass="is-invalid"
+                <input th:field="${user.password}" type="password" maxlength="20" class="form-control" th:errorClass="is-invalid"
                        name="password" placeholder="Password" aria-describedby="basic-password">
                 <div th:if="${#fields.hasErrors('password')}" th:errors="${user.password}" class="invalid-feedback"></div>
             </div>
@@ -61,6 +61,7 @@
                     <option value="Python Developer">Python Developer</option>
                     <option value="Scala Developer">Scala Developer</option>
                 </select>
+                <div class="was-validated"></div>
             </div>
             <div class="input-group mb-3">
                     <span class="input-group-text text-success" id="basic-salary">
@@ -88,7 +89,7 @@
                 <label class="form-check-label" for="check-married">Married ?</label>
             </div>
             <button type="submit" class="form-control btn btn-block btn-success">Create an account</button>
-            <h6 style="margin-top: .5rem">Already have an account ? <a href="#">Sign in</a></h6>
+            <h6 style="margin-top: .5rem">Already have an account ? <a th:href="@{/login}">Sign in</a></h6>
         </form>
     </div>
 </div>

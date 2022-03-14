@@ -3,11 +3,7 @@ package za.ac.cput.app.service;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-import za.ac.cput.app.model.User;
 import za.ac.cput.app.repository.UserRepository;
-
-import java.time.LocalDate;
-import java.time.Month;
 
 /**
  * @author Chadrack B. Boudzoumou

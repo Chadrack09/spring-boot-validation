@@ -9,7 +9,11 @@ body {
     height: inherit;
 }
 .row-width {
-    max-width: 600px;
+    max-width: 650px;
+    margin: auto;
+}
+.row-login {
+    max-width: 500px;
     margin: auto;
 }
 .form-control {
@@ -32,9 +36,21 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.7rem;
 }
 .invalid-feedback {
-    font-size: .7rem;
+    font-size: .8rem;
     font-weight: lighter;
     text-align: left;
+}
+
+.form-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.main-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+.alert {
+    padding: 0.5rem;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

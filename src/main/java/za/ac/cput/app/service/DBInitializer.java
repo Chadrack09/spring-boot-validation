@@ -2,8 +2,10 @@ package za.ac.cput.app.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import za.ac.cput.app.model.User;
+import za.ac.cput.app.model.UserRole;
 import za.ac.cput.app.repository.UserRepository;
 
 import java.sql.Date;
@@ -26,6 +28,7 @@ import java.util.stream.Stream;
 public class DBInitializer implements CommandLineRunner {
 
     private UserRepository repository;
+    private PasswordEncoder encoder;
 
     @Override
     public void run(String... args) {
@@ -33,36 +36,39 @@ public class DBInitializer implements CommandLineRunner {
             repository.saveAll(Stream.of(
                         new User(
                                 "John",
-                                "john123",
+                                encoder.encode("john123"),
                                 "john@doe.com",
                                 Date.valueOf("2022-02-03"),
                                 "Director",
                                 "Male",
                                 true,
                                 52000L,
-                                "Good communicator"
+                                "Good communicator",
+                                UserRole.ADMIN.name()
                         ),
                         new User(
                                 "Sarah",
-                                "sarah123",
+                                encoder.encode("sarah123"),
                                 "sarah@doe.com",
                                 Date.valueOf(LocalDate.of(2005, Month.JANUARY, 20)),
                                 "Accounting",
                                 "Female",
                                 true,
                                 25000L,
-                                "Good communicator"
+                                "Good communicator",
+                                UserRole.USER.name()
                         ),
                         new User(
                                 "Rose",
-                                "rose123",
+                                encoder.encode("rose123"),
                                 "rose@doe.com",
                                 Date.valueOf(LocalDate.of(1997, Month.FEBRUARY, 10)),
                                 "Secretary",
                                 "Female",
                                 false,
                                 10500L,
-                                "Fast Learner"
+                                "Fast Learner",
+                                UserRole.USER.name()
                         )
                 )
                 .collect(Collectors.toList())

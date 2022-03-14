@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.app.model.User;
 
+import java.util.Optional;
+
 /**
  * @author Chadrack B. Boudzoumou
  * @email 219383847@mycput.ac.za
@@ -16,5 +18,7 @@ import za.ac.cput.app.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findByEmail(String email);
+    User findByUsername(String username);
+
+    Optional<User> findByEmail(String email);
 }
