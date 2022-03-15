@@ -1,0 +1,26 @@
+name: Java CI with Maven
+
+on:
+  push: 
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 8.0.312+7
+      uses: actions/setup-java@v2
+      with:
+        java-version: 8.0.312+7
+        distribution: 'temurin'
+        cache: maven
+        
+    - name: Deploy to Heroku
+      uses: AkhileshNS/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.APP_KEY}}
+        heroku_email: ${{secrets.APP_EMAIL}}
+        heroku_app_name: ${{secrets.APP_NAME}}
