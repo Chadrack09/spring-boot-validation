@@ -14,6 +14,9 @@ import java.time.Month;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static za.ac.cput.app.model.UserRole.ADMIN;
+import static za.ac.cput.app.model.UserRole.USER;
+
 /**
  * @author Chadrack B. Boudzoumou
  * @email 219383847@mycput.ac.za
@@ -44,7 +47,7 @@ public class DBInitializer implements CommandLineRunner {
                                 true,
                                 52000L,
                                 "Good communicator",
-                                UserRole.ADMIN.name()
+                                ADMIN.name()
                         ),
                         new User(
                                 "Sarah",
@@ -56,7 +59,7 @@ public class DBInitializer implements CommandLineRunner {
                                 true,
                                 25000L,
                                 "Good communicator",
-                                UserRole.USER.name()
+                                USER.name()
                         ),
                         new User(
                                 "Rose",
@@ -68,7 +71,19 @@ public class DBInitializer implements CommandLineRunner {
                                 false,
                                 10500L,
                                 "Fast Learner",
-                                UserRole.USER.name()
+                                USER.name()
+                        ),
+                        new User(
+                                "James",
+                                encoder.encode("james123"),
+                                "james@doe.com",
+                                Date.valueOf(LocalDate.of(2005, Month.APRIL, 2)),
+                                "Spring Developer",
+                                "Male",
+                                false,
+                                23125L,
+                                "Fast Learner",
+                                ADMIN.name()
                         )
                 )
                 .collect(Collectors.toList())

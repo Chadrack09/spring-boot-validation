@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import static za.ac.cput.app.model.UserRole.ADMIN;
 import static za.ac.cput.app.model.UserRole.USER;
 
 /**
@@ -57,11 +58,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/users").authenticated()
+                .antMatchers("/admin").hasAuthority(ADMIN.name())
+                .and()
+                .exceptionHandling().accessDeniedPage("/denied")
                 .and()
                 .formLogin()
                     .loginPage("/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
+                        .defaultSuccessUrl("/")
                     .and()
                     .rememberMe()
                         .rememberMeParameter("remember-me")

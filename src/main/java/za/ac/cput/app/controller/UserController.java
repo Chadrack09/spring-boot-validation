@@ -10,16 +10,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import za.ac.cput.app.model.User;
 import za.ac.cput.app.model.UserRole;
 import za.ac.cput.app.repository.UserRepository;
-import za.ac.cput.app.service.UserService;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -41,8 +39,6 @@ public class UserController {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<User> users = repository.findAll();
-        model.addAttribute("users", users.toString());
         return "index";
     }
 
@@ -76,4 +72,26 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/users")
+    public String getAll(Model model) {
+        model.addAttribute("users", repository.findAll());
+        return "user";
+    }
+
+    @GetMapping("/denied")
+    public String accessDeniedPage(){
+        return "denied";
+    }
+
+    @GetMapping("/admin")
+    public String adminPage(Model model) {
+        model.addAttribute("users", repository.findAll());
+        return "admin";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        repository.deleteById(id);
+        return "redirect:/admin";
+    }
 }

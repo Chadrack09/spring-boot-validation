@@ -10,14 +10,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
 
     <nav th:replace="fragments/header :: header"></nav>
 
-    <h1>Home Page</h1>
-
-
+    <div class="container px-4 py-5 mt-3" id="featured-3">
+        <h2 class="pb-2 border-bottom">Software Development</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+            <div class="feature col">
+                <div style="height: auto;">
+                    <p><i class="devicon-spring-plain text-success" style="font-size: 6rem"></i></p>
+                </div>
+                <h2>Spring Boot</h2>
+                <p>Spring makes programming Java quicker, easier, and safer for
+                    everybody. Spring’s focus on speed, simplicity, and productivity
+                    has made it the world's most popular Java framework.</p>
+                <a th:href="@{https://spring.io/}" class="icon-link btn btn-outline-success">
+                    Read more <i class="fa-solid fa-circle-plus"></i></a>
+            </div>
+            <div class="feature col">
+                <div style="height: auto;">
+                    <p><i class="devicon-mysql-plain-wordmark text-success" style="font-size: 6rem"></i></i></p>
+                </div>
+                <h2>MySQL</h2>
+                <p>The most comprehensive set of advanced features, management
+                    tools and technical support to achieve the highest levels of
+                    MySQL scalability, security, reliability, and uptime.</p>
+                <a th:href="@{https://www.mysql.com/}" class="icon-link btn btn-outline-success">
+                    Read more <i class="fa-solid fa-circle-plus"></i></a>
+            </div>
+            <div class="feature col">
+                <div style="height: auto;">
+                    <p><i class="devicon-java-plain text-success" style="font-size: 6rem"></i></p>
+                </div>
+                <h2>Java</h2>
+                <p>Java is the #1 programming language and development platform.
+                    It reduces costs, shortens development timeframes, drives innovation,
+                    and improves application services. </p>
+                <a th:href="@{https://www.oracle.com/za/java/}" class="icon-link btn btn-outline-success">
+                    Read more <i class="fa-solid fa-circle-plus"></i></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

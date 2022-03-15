@@ -16,6 +16,10 @@ body {
     max-width: 500px;
     margin: auto;
 }
+.row-access {
+    max-width: 800px;
+    margin: auto;
+}
 .form-control {
     border-radius: unset;
 }
@@ -56,6 +60,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+th {
+    font-weight: lighter;
+    font-size: 1rem;
 }
 /* Firefox */
 input[type=number] {
