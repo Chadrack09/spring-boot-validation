@@ -3,6 +3,8 @@ html {
 }
 body {
     height: 100%;
+    /*overflow-x: hidden;*/
+    /*box-sizing: border-box;*/
 }
 .wrapper {
     display: flex;
@@ -64,6 +66,22 @@ input::-webkit-inner-spin-button {
 th {
     font-weight: lighter;
     font-size: 1rem;
+}
+.table-container {
+    height: auto;
+    width: 90%;
+    padding: 0;
+    margin-top: .5rem;
+    margin-bottom: 3rem;
+}
+.table-row {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table-responsive {
+    height: 100%;
 }
 /* Firefox */
 input[type=number] {
