@@ -51,6 +51,11 @@ public class UserController {
     @PostMapping("/save")
     public String save(@ModelAttribute @Valid User user,
                        BindingResult bindingResult, RedirectAttributes ra) {
+        
+        if(repository.findByEmail(user.getEmail()).isPresent()) 
+            bindingResult.addError(new FieldError(
+                    "user", "email", "Email already taken"));
+        
         if(bindingResult.hasErrors()) {
             if(!user.getEmail().equals("")) {
                 Optional<User> optional = repository.findByEmail(user.getEmail());
