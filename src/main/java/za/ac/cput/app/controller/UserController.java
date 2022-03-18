@@ -57,11 +57,6 @@ public class UserController {
                     "user", "email", "Email already taken"));
         
         if(bindingResult.hasErrors()) {
-            if(!user.getEmail().equals("")) {
-                Optional<User> optional = repository.findByEmail(user.getEmail());
-                if(optional.isPresent()) bindingResult.addError(new FieldError(
-                        "user", "email", "Email already taken"));
-            }
             return "register";
         }
         user.setRole(UserRole.USER.name());
