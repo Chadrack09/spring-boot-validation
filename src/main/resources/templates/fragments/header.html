@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" th:fragment="header">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">
+            <i class="devicon-adonisjs-original text-white"
+            style="font-size: 3rem"></i>
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-expanded="false"
+                aria-controls="navbarNav"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-end">
+                <li class="nav-item" style="margin-left: .3rem">
+                    <a class="nav-link text-white btn btn-outline-success nav-btn" href="#"
+                       th:href="@{/admin}" sec:authorize="isAuthenticated()"
+                       style="width: 7rem"><i class="fa-solid fa-folder-gear"></i> Admin page</a>
+                </li>
+                <li class="nav-item" style="margin-left: .3rem">
+                    <a class="nav-link text-white btn btn-outline-success nav-btn" href="#"
+                       th:href="@{/users}" sec:authorize="isAuthenticated()"
+                       style="width: 7rem"><i class="fa-solid fa-users"></i> See users</a>
+                </li>
+                <li class="nav-item" style="margin-left: .3rem">
+                    <a class="nav-link text-white btn btn-outline-success nav-btn" href="#"
+                       th:href="@{/login}" sec:authorize="isAnonymous()" style="width: 6rem">Sign in</a>
+                </li>
+                <li class="nav-item" style="margin-left: .3rem">
+                    <a class="nav-link text-white btn btn-outline-success nav-btn" href="#"
+                       th:href="@{/register}" sec:authorize="isAnonymous()" style="width: 6rem">Sign up</a>
+                </li>
+                <<li class="nav-item" style="margin-left: .3rem">
+                    <a class="nav-link text-white btn btn-outline-success nav-btn" href="#"
+                       th:href="@{/logout}" sec:authorize="isAuthenticated()" style="width: 6rem">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

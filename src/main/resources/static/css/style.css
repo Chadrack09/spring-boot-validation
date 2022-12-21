@@ -1,0 +1,89 @@
+html {
+    height: 100vh;
+}
+body {
+    height: 100%;
+    /*overflow-x: hidden;*/
+    /*box-sizing: border-box;*/
+}
+.wrapper {
+    display: flex;
+    height: inherit;
+}
+.row-width {
+    max-width: 650px;
+    margin: auto;
+}
+.row-login {
+    max-width: 500px;
+    margin: auto;
+}
+.row-access {
+    max-width: 800px;
+    margin: auto;
+}
+.form-control {
+    border-radius: unset;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+}
+.input-group-text {
+    border-radius: unset;
+}
+.btn {
+    border-radius: unset;
+}
+.form-check-input, checkbox {
+    border-radius: unset;
+}
+.radio-check {
+    display: flex;
+    margin-bottom: 0.7rem;
+}
+.invalid-feedback {
+    font-size: .8rem;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.form-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.main-title {
+    padding-left: 0;
+    padding-right: 0;
+}
+.alert {
+    padding: 0.5rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+th {
+    font-weight: lighter;
+    font-size: 1rem;
+}
+.table-container {
+    height: auto;
+    width: 90%;
+    padding: 0;
+    margin-top: .5rem;
+    margin-bottom: 3rem;
+}
+.table-row {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table-responsive {
+    height: 100%;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
